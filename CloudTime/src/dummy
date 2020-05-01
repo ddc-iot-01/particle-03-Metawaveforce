@@ -1,0 +1,32 @@
+/*
+ * Project CLOUDTIME
+ * Description:
+ * Author:
+ * Date:
+ */
+#include <Particle.h>
+// setup() runs once, when the device is first turned on.
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println ("BeginlineSync");
+  // Put initialization like pinMode and begin functions here.
+ // wait for Serial monitor 13 Serial.println("-------- Begin Time Sync --------"); 14 }
+// wait for Serial monitor 13 Serial.println("-------- Begin Time Sync --------"); 14 }
+}
+// loop() runs over and over again, as quickly as it can execute.
+void loop() {
+  // The core of your code will likely live here.
+sync_my_time();
+delay (random(1000,6000));
+}
+void sync_my_time() {
+  Time.zone (-6);
+  unsigned long cur = millis ();
+  Particle.syncTime();
+  waitUntil(Particle.syncTimeDone);
+  if (Particle.timeSyncedLast() >= cur)
+{
+Serial.printlnf("Current Time.time is %s", Time.timeStr() );
+}
+}
