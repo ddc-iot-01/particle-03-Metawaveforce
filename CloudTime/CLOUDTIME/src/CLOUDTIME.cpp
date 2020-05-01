@@ -2,7 +2,7 @@
 //       THIS IS A GENERATED FILE - DO NOT EDIT       //
 /******************************************************/
 
-#line 1 "c:/Users/217fa/Documents/CloudTime/CLOUDTIME/src/CLOUDTIME.ino"
+#line 1 "c:/Users/IoTPa/Documents/Brian/students/Jerry/particle-03-Metawaveforce/CloudTime/CLOUDTIME/src/CLOUDTIME.ino"
 /*
  * Project CLOUDTIME
  * Description:
@@ -10,14 +10,20 @@
  * Date:
  */
 
+
+
 #include "Particle.h"
+
+#include <Adafruit_SSD1306.h>
+#include <Adafruit_GFX.h>
 
 void setup();
 void loop();
 void sync_my_time();
 void printcurrentDateTime ();
-#line 10 "c:/Users/217fa/Documents/CloudTime/CLOUDTIME/src/CLOUDTIME.ino"
+#line 15 "c:/Users/IoTPa/Documents/Brian/students/Jerry/particle-03-Metawaveforce/CloudTime/CLOUDTIME/src/CLOUDTIME.ino"
 #define OLED_ADDR   0x3C
+Adafruit_SSD1306 display(-1); 
 
 #define SSD1306_128_64
    
@@ -42,7 +48,6 @@ void loop() {
   sync_my_time();
   delay(random(10000,60000));   // just a random delay so that we can see this work (edited) 
  printcurrentDateTime();
-
 }
 void sync_my_time() {
   String DateTime;
@@ -54,7 +59,7 @@ void sync_my_time() {
   // Request time synch from Particle Device Cloud and wait for data to come back
   Particle.syncTime();
   waitUntil(Particle.syncTimeDone);
-}
+
   // Check if synchronized successfully
   if (Particle.timeSyncedLast() >= cur) {
     DateTime = Time.timeStr();
@@ -94,6 +99,3 @@ void printcurrentDateTime () {
    delay(1000);
    display.display();
 }
-
-}
- }

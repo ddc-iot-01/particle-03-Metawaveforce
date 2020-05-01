@@ -15,7 +15,7 @@
 #define OLED_ADDR   0x3C
 Adafruit_SSD1306 display(-1); 
 
-#define SSD1306_128_64 0x3c
+#define SSD1306_128_64
    
 int currentDateTime;
 
@@ -49,7 +49,7 @@ void sync_my_time() {
   // Request time synch from Particle Device Cloud and wait for data to come back
   Particle.syncTime();
   waitUntil(Particle.syncTimeDone);
-}
+
   // Check if synchronized successfully
   if (Particle.timeSyncedLast() >= cur) {
     DateTime = Time.timeStr();
@@ -89,6 +89,3 @@ void printcurrentDateTime () {
    delay(1000);
    display.display();
 }
-
-}
- }
