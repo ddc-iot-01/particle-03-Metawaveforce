@@ -23,8 +23,8 @@ Adafruit_BME280 bme;
 /************************* Adafruit.io Setup *********************************/ 
 #define AIO_SERVER      "io.adafruit.com" 
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL 
-#define AIO_USERNAME  "<""Thehomeschooldev"">"
-#define AIO_KEY       "<"aio_uvZE47CGgAUR2W9BWWgZ37dp5X5Q">"
+#define AIO_USERNAME  "Thehomeschooldev"
+#define AIO_KEY       "aio_uvZE47CGgAUR2W9BWWgZ37dp5X5Q"
 
 
 /************ Global State (you don't need to change this!) ***   ***************/ 
@@ -38,8 +38,8 @@ Adafruit_MQTT_SPARK mqtt(&TheClient,AIO_SERVER,AIO_SERVERPORT,AIO_USERNAME,AIO_K
 // Setup a feed called <object> for publishing. 
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname> 
 
-Adafruit_MQTT_Publish <object1> = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/<feedname1>");
-Adafruit_MQTT_Publish <object2> = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/<feedname2>");
+Adafruit_MQTT_Publish <Moisture> = Adafruit_MQTT_Publish(&mqtt, Thehomeschooldev "/feeds/<Moisture>");
+Adafruit_MQTT_Publish <Temperture> = Adafruit_MQTT_Publish(&mqtt, Thehomeschooldev"/feeds/<Temperture>");
 
 /************************ Normal Declarations ******************************/
 int feed1;
@@ -85,8 +85,9 @@ void loop() {
   feed2 = random(1,1000);
 
  if(mqtt.Update()){
-  <object1>.publish(feed1); 
-  <object2>.publish(feed2);
+  <Moisture>.publish(feed1); 
+ } 
+  <Temperture>.publish(feed2);
  } 
 
   time1=millis();
