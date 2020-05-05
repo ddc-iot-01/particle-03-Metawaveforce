@@ -2,7 +2,7 @@
 //       THIS IS A GENERATED FILE - DO NOT EDIT       //
 /******************************************************/
 
-#line 1 "c:/Users/IoTPa/Documents/Brian/students/Jerry/particle-03-Metawaveforce/CloudTime2/src/CloudTime2.ino"
+#line 1 "c:/Users/217fa/Documents/IoT/particle-03-Metawaveforce/CloudTime2/src/CloudTime2.ino"
 /*
  * Project CLOUDTIME
  * Description:
@@ -21,7 +21,7 @@ void setup();
 void loop();
 void sync_my_time();
 void printcurrentDateTime(char nowTime[9]);
-#line 15 "c:/Users/IoTPa/Documents/Brian/students/Jerry/particle-03-Metawaveforce/CloudTime2/src/CloudTime2.ino"
+#line 15 "c:/Users/217fa/Documents/IoT/particle-03-Metawaveforce/CloudTime2/src/CloudTime2.ino"
 #define OLED_ADDR   0x3C
 Adafruit_SSD1306 display(-1); 
 
@@ -78,7 +78,7 @@ void sync_my_time() {
     if(Particle.timeSyncedLast() >= cur){
       // Print current time
       Serial.printlnf("Current time is %s",currentTime);
-      printcurrentDateTime(currentTime);
+      printcurrentDateTime(currentDateTime);
     }  
   }
 

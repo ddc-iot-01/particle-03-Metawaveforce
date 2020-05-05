@@ -68,7 +68,7 @@ void sync_my_time() {
     if(Particle.timeSyncedLast() >= cur){
       // Print current time
       Serial.printlnf("Current time is %s",currentTime);
-      printcurrentDateTime(currentTime);
+      printcurrentDateTime(currentDateTime);
     }  
   }
 

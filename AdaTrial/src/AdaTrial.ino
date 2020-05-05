@@ -6,8 +6,6 @@
  */
 
 #include <Adafruit_MQTT.h>
-
-// All this needs to be included too 
 #include "Adafruit_MQTT/Adafruit_MQTT.h" 
 #include "Adafruit_MQTT/Adafruit_MQTT_SPARK.h" 
 #include "Adafruit_MQTT/Adafruit_MQTT.h" 
@@ -17,6 +15,10 @@
 Adafruit_BME280 bme; 
 
 #define SEALEVELPRESSURE_HPA (1013.25)
+
+
+// All this needs to be included too 
+
 
 
 
@@ -38,8 +40,8 @@ Adafruit_MQTT_SPARK mqtt(&TheClient,AIO_SERVER,AIO_SERVERPORT,AIO_USERNAME,AIO_K
 // Setup a feed called <object> for publishing. 
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname> 
 
-Adafruit_MQTT_Publish <Moisture> = Adafruit_MQTT_Publish(&mqtt, Thehomeschooldev "/feeds/<Moisture>");
-Adafruit_MQTT_Publish <Temperture> = Adafruit_MQTT_Publish(&mqtt, Thehomeschooldev"/feeds/<Temperture>");
+Adafruit_MQTT_Publish Moisture = Adafruit_MQTT_Publish(&mqtt, Thehomeschooldev "/feeds/Moisture");
+Adafruit_MQTT_Publish Temperture  = Adafruit_MQTT_Publish(&mqtt, Thehomeschooldev"/feeds/Temperture");
 
 /************************ Normal Declarations ******************************/
 int feed1;
@@ -85,9 +87,10 @@ void loop() {
   feed2 = random(1,1000);
 
  if(mqtt.Update()){
-  <Moisture>.publish(feed1); 
+  Moisture.publish(feed1); 
+  
  } 
-  <Temperture>.publish(feed2);
+  Temperture.publish(feed2);
  } 
 
   time1=millis();

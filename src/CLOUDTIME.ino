@@ -15,7 +15,7 @@
 #define OLED_ADDR   0x3C
 Adafruit_SSD1306 display(-1); 
 
-#define SSD1306_128_64 0x3c
+#define SSD1306_128_64 
    
 int currentDateTime;
 
